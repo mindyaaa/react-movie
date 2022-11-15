@@ -7,7 +7,18 @@
     <title>Document</title>
 </head>
 <body>
+    <div id="root"></div>
 </body>
 <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
 <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+<script>
+    const root = document.querySelector('#root');
+    const h3 = React.createElement('h3', null, "Hello I am a h3");
+    const btn = React.createElement('button', {
+        onMouseEnter :() => console.log('mouse enter'),
+        style :{backgroundColor : 'tomato'}
+    }, 'I am a button');
+    const container = React.createElement('div', null, [h3, btn]);
+    ReactDOM.render(container, root)
+</script>
 </html>
