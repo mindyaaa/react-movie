@@ -18,7 +18,9 @@
     const App = () => {
         const [counter, setCounter] = React.useState(0);
         const handleClick = () => {
-            setCounter(counter+1);
+            //setCounter(counter+1);
+            //현재값 기준으로 state값 업데이트 하고자할 때 아래와 같이 쓰는게 맞음
+            setCounter((current) => current + 1);
         }
         return (
             <div>
