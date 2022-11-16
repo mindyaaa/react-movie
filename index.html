@@ -13,22 +13,46 @@
 <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
 <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 <script type="text/babel">
-    const root = document.querySelector('#root');
 
     const App = () => {
-        const [counter, setCounter] = React.useState(0);
-        const handleClick = () => {
-            //setCounter(counter+1);
-            //현재값 기준으로 state값 업데이트 하고자할 때 아래와 같이 쓰는게 맞음
-            setCounter((current) => current + 1);
+        const [ minutes, setMinutes ] = React.useState("");
+        const onChange = (e) =>{
+            setMinutes(e.target.value);
+        }
+        const reset = () => {
+            setMinutes(0);
         }
         return (
             <div>
-                <h3>Total Clicks : {counter}</h3>
-                <button onClick={handleClick}>Click me</button>
+                <div>
+                <h1>Super Converter</h1>
+                <label htmlFor="minutes">Minutes</label>
+                <input
+                value={minutes}
+                id="minutes"
+                placeholder="Minutes"
+                type="number"
+                onChange={onChange}
+                />
+                <h4>You want to convert {minutes}</h4>
+                </div>
+
+                <div>
+                <label htmlFor="hours">Hours</label>
+                <input
+                value={Math.round(minutes / 60)}
+                id="hours" 
+                placeholder="Hours" 
+                type="number" 
+                />
+                </div>
+
+                <button onClick={reset}>Reset</button>
             </div>
         )
     };
+
+    const root = document.querySelector('#root');
     ReactDOM.render(<App />, root); 
 </script>
 </html>
