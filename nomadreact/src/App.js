@@ -3,7 +3,6 @@ import Detail from './routes/Detail';
 import {
   BrowserRouter as Router,
   Switch,
-  Routes,
   Route,
   } from "react-router-dom";
 
